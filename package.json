@@ -1,0 +1,30 @@
+{
+  "name": "mixed",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wioenena-q/mixed.git"
+  },
+  "keywords": [],
+  "author": "wioenena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wioenena-q/mixed/issues"
+  },
+  "homepage": "https://github.com/wioenena-q/mixed#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
+  }
+}
