@@ -13,7 +13,7 @@ export const intRanges = {
         max: 2147483647
     },
     int64: {
-        min: Math.pow(2, 63),
+        min: 0,
         max: Math.pow(2, 63) - 1
     },
     uint8: {
@@ -87,7 +87,7 @@ export class Mixed {
             return result;
         }
 
-        return list[this.randomInt(0, list.length)];
+        return list[this.randomInt(0, list.length - 1)];
     }
 
     /**
@@ -201,7 +201,7 @@ export class Mixed {
      * @param {number} [max=intRanges.uint8.max]
      * @memberof Mixed
      */
-    public randomUint32(min: number = 0, max: number = intRanges.uint8.max) {
+    public randomUint32(min: number = 0, max: number = intRanges.uint32.max) {
         if (min < 0 || max > intRanges.uint32.max)
             throw new Error("The specified range does not match the ranges of uint32.");
 
@@ -220,7 +220,7 @@ export class Mixed {
         if (min < intRanges.int64.min || max > intRanges.int64.max)
             throw new Error("The specified range does not match the ranges of int64.");
 
-        return this.randomInt(min, max);
+        return this.randomInt(min, max - 1);
     }
 
     /**
@@ -255,6 +255,6 @@ export class Mixed {
      * @memberof Mixed
      */
     public randomBinary(min: number = 0, max: number = 10): string {
-        return Math.floor(min + Math.random() * (max + 1 - min)).toString(2);
+        return this.randomInt(min, max).toString(2);
     }
 }
