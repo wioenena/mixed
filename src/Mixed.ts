@@ -99,26 +99,10 @@ export class Mixed {
      */
     public shuffle<T>(list: T[]): void;
     public shuffle(list: unknown[]): void {
-        // Cloned list.
-        const clone = list.slice();
-        // Target list length.
-        const { length } = list;
-
-        // Delete all items.
-        list.splice(0, list.length);
-
-        let i = 0;
-
-        while (true) {
-            if (i === length) break;
-
-            const random = this.choice(clone);
-
-            if (list.includes(random))
-                continue;
-
-            list.push(random);
-            i++;
+        let length = list.length;
+        while (0 !== length--) {
+            const r = this.randomInt(0, length);
+            [list[length], list[r]] = [list[r], list[length]]
         }
     }
 
